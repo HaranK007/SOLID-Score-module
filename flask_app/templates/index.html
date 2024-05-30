@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Scoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Wallet Scoring</h1>
+    </header>
+    <main>
+        <section class="wallet-input">
+            <h2>Enter Wallet Address to Get Score</h2>
+            <form action="/score" method="post">
+                <label for="wallet_address">Wallet Address:</label>
+                <input type="text" id="wallet_address" name="wallet_address" required>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section class="results">
+            {% if cluster is not none %}
+            <div class="cluster-info">
+                <h2>Bot deduction using ML</h2>
+                Performing K-Means.
+                <span>The given address belongs to the K-means cluster: <h3>{{ cluster }}</h3> </span>
+                <h3>Cluster Visualization</h3>
+                <img src="data:image/png;base64,{{ cluster_plot_url }}" alt="Cluster plot">
+
+                <h3>Feature Distances from Cluster Centers</h3>
+                <img src="data:image/png;base64,{{ feature_distances_plot_url }}" alt="Feature Distances plot">
+            </div>
+            {% endif %}
+
+            {% if nft_user is not none%}
+            <div class="nft-info">
+                <h2>The user NFT interaction analysis</h2>
+                <h4>User category : {{ nft_user }}</h4>
+                <h3>NFT activity graph</h3>
+                <img src="data:image/png;base64,{{ nft_activities_plot_url }}" alt="NFT Activities plot">
+            </div>
+            {% endif %}
+
+            {% if risk_score is not none%}
+            <div class="risk-info">
+                <h2 >Breadcrumbs API Analysis</h2>  <h3>wallet risk level: {{ risk_score }}</h3>
+                {% if tags is not none%}
+                <h2>The security tags associated with the wallet: {{ tags }}</h2>
+                {% endif %}
+            </div>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>
