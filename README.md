@@ -1,33 +1,25 @@
 # SOLID Score Module
-
-This SOLID Score Module is build to indicate the level of “credibility”  
-associated with the given Solana wallet addresses using on-chain data analysis. 
-
+The SOLID Score Module is designed to assess the level of "credibility" associated with given Solana wallet addresses through on-chain data analysis. 
+By leveraging K-Means clustering, NFT interaction analysis, and risk scores from the Breadcrumbs API and RainFi API, this module provides a comprehensive credibility score for Solana wallets.
 
 # Overview
+The SOLID Score Module integrates various analytical methods to evaluate the credibility of Solana wallet addresses:
 
-The model utilizes K-Means clustering, NFT interaction analysis, and 
-risk scores obtained from Breadcrumbs API to achieve this objective.
+## K-Means Clustering: This technique is used to categorize wallets based on their transaction patterns and behaviors.
+NFT Interaction Analysis: This involves analyzing the interactions of wallets with Non-Fungible Tokens (NFTs) to assess engagement and activity levels.
+##Risk Scores from Breadcrumbs API and RainFi API: The module retrieves risk scores from both the Breadcrumbs and RainFi APIs to incorporate external assessments of wallet risk into the overall credibility score.
+
+# Features
+## Clustering: 
+Group wallets with similar behaviors using K-Means clustering.
+
+## NFT Analysis: 
+Evaluate wallet activity and engagement in the NFT ecosystem.
+
+## Risk Assessment: 
+Integrate risk scores from the Breadcrumbs API and RainFi API to enhance credibility evaluation.
 
 See https://docs.google.com/document/d/1nCSYwIekbrm7q1V0bLAcvehA75mBYfUgRHSE4odg2vo/edit?usp=sharing for full Algorithm documentation.
-
-
-File structure explaination:
-
-.
-├── flask app                           # A flask app where the analysis are integrated [kmeans, nft-analysis (only using magiceden data) and breadcrumbs score]
-|    └── static
-|    └── templates
-|    └── app.py
-|    └── kmeans_model.joblib             
-|    └── scalar.joblib
-|    └── requirements.txt
-├── test_model_kmeans.ipynb             # Code to test the trained k-Means model
-├── train_model_Kmeans.ipynb            # Code to train the k-means model
-├── nft_activities.ipynb                # code to analyse the nft activities using magiceden endpoint
-
-
-
 
 # NOTE:
 
