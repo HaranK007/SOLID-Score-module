@@ -16,12 +16,12 @@ File structure explaination:
 
 .
 ├── flask app                           # A flask app where the analysis are integrated [kmeans, nft-analysis (only using magiceden data) and breadcrumbs score]
-    └── static
-    └── templates
-    └── app.py
-    └── kmeans_model.joblib             
-    └── scalar.joblib
-    └── requirements.txt
+|    └── static
+|    └── templates
+|    └── app.py
+|    └── kmeans_model.joblib             
+|    └── scalar.joblib
+|    └── requirements.txt
 ├── test_model_kmeans.ipynb             # Code to test the trained k-Means model
 ├── train_model_Kmeans.ipynb            # Code to train the k-means model
 ├── nft_activities.ipynb                # code to analyse the nft activities using magiceden endpoint
